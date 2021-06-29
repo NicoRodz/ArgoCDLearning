@@ -16,3 +16,6 @@ patchesStrategicMerge:
           containers:
           - name: rest
             image: slaas/slaas-rest-app:latest
+
+# Para reemplazar la imagen al final de la parte de CI, al finalizar, se pushea esto.
+# sed -i "s#slaas/slaas-rest-api:.*#slaas/slaas-rest-api:cedaa3d98bbe2441f798d4f84e3c984bf91a6821#" k8s/overlays/develop/kustomization.yaml
