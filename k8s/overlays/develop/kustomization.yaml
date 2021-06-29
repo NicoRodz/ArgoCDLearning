@@ -7,11 +7,11 @@ patchesStrategicMerge:
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: ms-auth
-      namespace: marketplace-auth
+      name: rest
+      namespace: nico-rest
     spec:
       template:
         spec:
           containers:
-          - name: ms-auth
-            image: slaas/slaas-auth-ms:124
+          - name: rest
+            image: slaas/slaas-rest-app:latest

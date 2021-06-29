@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "nico-rest-test"
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/NicoRodz/ArgoCDLearning.git
+    targetRevision: develop
+    path: k8s/overlays/develop
+  destination:
+    server: https://F5087697A3ED058D13FC739D065713FA.gr7.us-west-2.eks.amazonaws.com
+    namespace: nico-rest

@@ -4,7 +4,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
   generation: 1
-  name: nico-rest-api
+  name: rest
   namespace: nico-rest
 spec:
   rules:
@@ -13,7 +13,7 @@ spec:
       paths:
       - backend:
           service:
-            name: api
+            name: rest-service
             port:
               number: 80
         path: /
