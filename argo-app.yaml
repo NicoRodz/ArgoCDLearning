@@ -12,3 +12,18 @@ spec:
   destination:
     server: https://F5087697A3ED058D13FC739D065713FA.gr7.us-west-2.eks.amazonaws.com
     namespace: nico-rest
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "nico-rest-test-prod"
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/NicoRodz/ArgoCDLearning.git
+    targetRevision: main
+    path: k8s/overlays/production
+  destination:
+    server: https://B84A2010C47C3A680C77CE95CE7B4E8F.sk1.us-west-2.eks.amazonaws.com
+    namespace: nico-rest

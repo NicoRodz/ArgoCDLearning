@@ -1,5 +1,4 @@
 resources:
-  - secrets.yaml
   - ../../base
   - ingress.yaml
 

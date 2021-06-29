@@ -1,6 +1,5 @@
 resources:
   - config-maps.yaml
   - deployment.yaml
-  - ingress.yaml
   - service.yaml
   - network-policy.yaml
