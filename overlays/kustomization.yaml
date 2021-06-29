@@ -1,0 +1,17 @@
+resources:
+  - secrets.yaml
+  - ../../base
+
+patchesStrategicMerge:
+  - |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: ms-auth
+      namespace: marketplace-auth
+    spec:
+      template:
+        spec:
+          containers:
+          - name: ms-auth
+            image: slaas/slaas-auth-ms:124

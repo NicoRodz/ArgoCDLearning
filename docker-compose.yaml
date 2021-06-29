@@ -1,0 +1,36 @@
+version: '3.5'
+volumes:
+    shared-volume:
+
+services:
+    api:
+        container_name: simple-api
+        restart: always
+        image: my-app
+        environment: 
+            - MY_SECRET=sssshhtt
+        ports:
+            - 5000:5000
+    curl:
+        container_name: curl-app
+        restart: always
+        image: curlimages/curl:7.77.0
+        user: root
+        volumes:
+            - shared-volume:/curl_volume
+        # entrypoint: "/bin/sh"
+        command: "-v http://api:5000 -o curl_volume/response.log"
+        depends_on:
+            - api
+    alpine:
+        container_name: alpine
+        restart: always
+        image: alpine:3.14
+        entrypoint: "/bin/sh"
+        volumes:
+            - shared-volume:/alpine_volume
+        command:
+            - -c
+            - "cat alpine_volume/response.log"
+        depends_on:
+            - curl

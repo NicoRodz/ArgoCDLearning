@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  message: hello_from_the_hell
+kind: ConfigMap
+metadata:
+  name: configmap-value-nico-rest
+  namespace: nico-rest
